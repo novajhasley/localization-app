@@ -35,7 +35,7 @@ class _MainPageState extends State<MainPage> {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.more_horiz),
+                icon: Icon(Icons.settings),
                 label: 'Settings',
               ),
             ],

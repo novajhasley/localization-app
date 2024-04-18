@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:ninjatrader_interview/classes/language_constants.dart';
-import 'package:ninjatrader_interview/pages/about_page.dart';
 import 'package:ninjatrader_interview/pages/widgets/dropdown_menu.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,14 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 1;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,10 +50,7 @@ class _HomePageState extends State<HomePage> {
                 maxLines: 3,
               ),
             ),
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [LanguageDropDownMenu()],
-            ),
+            const LanguageDropDownMenu()
           ],
         ),
       ),
