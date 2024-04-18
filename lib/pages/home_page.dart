@@ -1,7 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:ninjatrader_interview/classes/language.dart';
 import 'package:ninjatrader_interview/classes/language_constants.dart';
-import 'package:ninjatrader_interview/main.dart';
+import 'package:ninjatrader_interview/pages/about_page.dart';
+import 'package:ninjatrader_interview/pages/widgets/dropdown_menu.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,84 +13,59 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading:
+            false, // This line prevents the back button from being shown
         title: Text(translation(context).homePage),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: DropdownButton<Language>(
-              underline: const SizedBox(),
-              icon: const Icon(
-                Icons.language,
-                color: Colors.white,
-              ),
-              onChanged: (Language? language) async {
-                if (language != null) {
-                  Locale locale = await setLocale(language.languageCode);
-                  MyApp.setLocale(context, locale);
-                }
-              },
-              items: Language.languageList()
-                  .map<DropdownMenuItem<Language>>(
-                    (e) => DropdownMenuItem<Language>(
-                      value: e,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Text(
-                            e.flag,
-                            style: const TextStyle(fontSize: 30),
-                          ),
-                          Text(e.name)
-                        ],
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-        ],
       ),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            translation(context).helloUser,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          DropdownButton<Language>(
-            iconSize: 30,
-            hint: Text(translation(context).changeLanguage),
-            onChanged: (Language? language) async {
-              if (language != null) {
-                Locale locale0 = await setLocale(language.languageCode);
-                MyApp.setLocale(context, locale0);
-              }
-            },
-            items: Language.languageList()
-                .map<DropdownMenuItem<Language>>(
-                  (langugage) => DropdownMenuItem<Language>(
-                    value: langugage,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Text(
-                          langugage.flag,
-                          style: const TextStyle(fontSize: 30),
-                        ),
-                        Text(langugage.name)
-                      ],
-                    ),
+      body: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          children: [
+            //BACKGROUND IMAGE
+            ImageFiltered(
+              imageFilter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
+              child: Center(
+                child: OverflowBox(
+                  maxWidth: double.infinity,
+                  child: Transform.translate(
+                    offset: const Offset(200, 100),
+                    child: Image.asset('assets/images/backgrounds/zigzag.png',
+                        fit: BoxFit.cover),
                   ),
-                )
-                .toList(),
-          ),
-        ],
-      )),
+                ),
+              ),
+            ),
+            //CONTENT
+            Positioned(
+              left: 20,
+              top: 80,
+              child: Text(
+                translation(context).helloUser,
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 50),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 3,
+              ),
+            ),
+            const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [LanguageDropDownMenu()],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
