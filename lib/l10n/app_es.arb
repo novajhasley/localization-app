@@ -1,6 +1,8 @@
 {
-  "homePage": "Página de Inicio",
+  "english": "Inglés",
+  "spanish": "Español",
   "helloUser": "¡Hola, usuario!",
   "settings": "Configuraciones",
-  "changeLanguage": "Cambiar Idioma"
+  "changeLanguage": "Cambiar idioma",
+  "languagePreference": "Preferencia de idioma"
 }

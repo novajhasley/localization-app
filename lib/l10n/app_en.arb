@@ -1,7 +1,11 @@
 {
-  "homePage": "Home Page",
-  "@homePage": {
-    "description": "The title for the home page"
+  "english": "English",
+  "@english": {
+    "description": "English language"
+  },
+  "spanish": "Spanish",
+  "@spanish": {
+    "description": "Spanish language"
   },
   "helloUser": "Hello, user!",
   "@helloUser": {
@@ -14,5 +18,9 @@
   "changeLanguage": "Change Language",
   "@changeLanguage": {
     "description": "Label for the button to change the application language"
+  },
+  "languagePreference": "Language preference",
+  "@languagePreference": {
+    "description": "Label for the language preference option"
   }
 }

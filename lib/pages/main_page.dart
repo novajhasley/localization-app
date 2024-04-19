@@ -31,12 +31,13 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return ZoomDrawer(
+      slideWidth: MediaQuery.of(context).size.width * 0.8,
       controller: _drawerController,
       borderRadius: 50,
       angle: 0.0,
       openCurve: Curves.fastOutSlowIn,
       mainScreenTapClose: true,
-      menuBackgroundColor: Colors.grey[600] ?? Colors.grey,
+      menuBackgroundColor: const Color.fromARGB(255, 0, 0, 75),
       duration: const Duration(milliseconds: 500),
       menuScreenTapClose: true,
       menuScreen: SideMenu(
@@ -70,9 +71,6 @@ class _MainPageState extends State<MainPage> {
                   setState(() {
                     _selectedIndex = index;
                   });
-                  if (_selectedIndex == 2) {
-                    _drawerController.toggle!();
-                  }
                 }
               },
               showSelectedLabels:

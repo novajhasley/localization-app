@@ -16,6 +16,8 @@ class SideMenu extends StatefulWidget {
 class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
+    String selectedLanguage = Localizations.localeOf(context).languageCode;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -28,43 +30,76 @@ class _SideMenuState extends State<SideMenu> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Current Language",
-                    style: TextStyle(
-                        color: Colors.white, fontSize: 17, fontFamily: "Inter"),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    "English",
-                    style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
-                        fontSize: 15,
-                        fontFamily: "Inter"),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: Wrap(
+                      children: [
+                        Text(
+                          "${translation(context).languagePreference}:",
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontFamily: "Inter",
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.5,
-                    width: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    width: MediaQuery.of(context).size.width * 0.5,
                     child: ListView.builder(
                       itemCount: Language.languageList().length,
                       itemBuilder: (context, index) {
                         var language = Language.languageList()[index];
-                        return ListTile(
-                          onTap: () async {
-                            Locale locale =
-                                await setLocale(language.languageCode);
-                            MyApp.setLocale(context, locale);
-                            widget.drawerController.toggle!();
-                          },
-                          title: Row(
-                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: <Widget>[
-                              Text(
-                                language.flag,
-                                style: const TextStyle(fontSize: 30),
+                        return Column(
+                          children: [
+                            //LANGUAGE BUTTON
+                            GestureDetector(
+                              onTap: () async {
+                                setState(() {
+                                  selectedLanguage = language.languageCode;
+                                });
+                                Locale locale =
+                                    await setLocale(language.languageCode);
+                                MyApp.setLocale(context, locale);
+                                widget.drawerController.toggle!();
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.symmetric(vertical: 5),
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color:
+                                      selectedLanguage == language.languageCode
+                                          ? Colors.blue
+                                          : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  children: <Widget>[
+                                    const Icon(
+                                        IconData(0xf017b,
+                                            fontFamily: 'MaterialIcons'),
+                                        color: Colors.white),
+                                    const SizedBox(width: 10),
+                                    Text(language.name,
+                                        style: const TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600)),
+                                  ],
+                                ),
                               ),
-                              Text(language.name)
-                            ],
-                          ),
+                            ),
+                            //DIVIDER
+                            if (index !=
+                                Language.languageList().length -
+                                    1) // Check if it's not the last index
+                              Divider(
+                                color: Colors.white.withOpacity(.6),
+                                thickness: 0.5,
+                              ),
+                          ],
                         );
                       },
                     ),

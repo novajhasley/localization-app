@@ -1,8 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:ninjatrader_interview/classes/language_constants.dart';
-import 'package:ninjatrader_interview/pages/widgets/dropdown_menu.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});

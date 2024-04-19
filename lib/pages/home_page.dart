@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:ninjatrader_interview/classes/language_constants.dart';
-import 'package:ninjatrader_interview/pages/widgets/dropdown_menu.dart';
 
 class HomePage extends StatefulWidget {
   final ZoomDrawerController drawerController;
@@ -21,7 +20,6 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         automaticallyImplyLeading:
             false, // This line prevents the back button from being shown
-        title: Text(translation(context).homePage),
       ),
       body: Scaffold(
         backgroundColor: Colors.transparent,
@@ -69,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onPressed: () => widget.drawerController.toggle!(),
                   child: Text(
-                    translation(context).helloUser,
+                    translation(context).changeLanguage,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 20),
                     overflow: TextOverflow.ellipsis,
