@@ -1,11 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:ninjatrader_interview/classes/language_constants.dart';
 import 'package:ninjatrader_interview/pages/widgets/dropdown_menu.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final ZoomDrawerController drawerController;
+
+  const HomePage({super.key, required this.drawerController});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -50,7 +53,33 @@ class _HomePageState extends State<HomePage> {
                 maxLines: 3,
               ),
             ),
-            const LanguageDropDownMenu()
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue, // Choose your color
+                  borderRadius:
+                      BorderRadius.circular(30), // Adjust for oval shape
+                ),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 20), // This is the color of the text
+                  ),
+                  onPressed: () => widget.drawerController.toggle!(),
+                  child: Text(
+                    translation(context).helloUser,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 20),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                  ),
+                ),
+              ),
+            ),
+
+            // const LanguageDropDownMenu()
           ],
         ),
       ),

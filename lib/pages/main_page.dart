@@ -16,10 +16,17 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 1;
-  final _pages = [const AboutPage(), const HomePage(), const SettingsPage()];
+  List<Widget> _pages = [];
   final _drawerController = ZoomDrawerController();
-
-
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      const AboutPage(),
+      HomePage(drawerController: _drawerController),
+      const SettingsPage()
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +36,12 @@ class _MainPageState extends State<MainPage> {
       angle: 0.0,
       openCurve: Curves.fastOutSlowIn,
       mainScreenTapClose: true,
+      menuBackgroundColor: Colors.grey[600] ?? Colors.grey,
       duration: const Duration(milliseconds: 500),
       menuScreenTapClose: true,
-      menuScreen: const SideMenu(),
+      menuScreen: SideMenu(
+        drawerController: _drawerController,
+      ),
       mainScreen: Scaffold(
         body: _pages[_selectedIndex],
         bottomNavigationBar: ClipRRect(

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninjatrader_interview/classes/language_constants.dart';
 import 'package:ninjatrader_interview/pages/main_page.dart';
-import 'package:ninjatrader_interview/router/custom_router.dart';
-import 'package:ninjatrader_interview/router/route_constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
@@ -43,7 +41,12 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      onGenerateRoute: CustomRouter.generatedRoute,
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) => const MainPage(),
+          settings: settings,
+        );
+      },
       // initialRoute: homeRoute,
       locale: _locale,
       home: const MainPage(),
