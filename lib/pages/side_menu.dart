@@ -10,16 +10,9 @@ class SideMenu extends StatefulWidget {
 class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top,
-          bottom: MediaQuery.of(context).padding.bottom - 60),
-      constraints: const BoxConstraints(maxWidth: 288),
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+    return Scaffold(
+      backgroundColor: Colors.black.withOpacity(0.7),
+      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
