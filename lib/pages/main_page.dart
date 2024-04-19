@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
     _pages = [
       const AboutPage(),
       HomePage(drawerController: _drawerController),
-      const SettingsPage()
+      SettingsPage()
     ];
   }
 
@@ -65,7 +65,7 @@ class _MainPageState extends State<MainPage> {
                 ),
               ],
               currentIndex: _selectedIndex,
-              selectedItemColor: Colors.amber[800],
+              selectedItemColor: Colors.blue,
               onTap: (index) {
                 if (_selectedIndex != index) {
                   setState(() {

@@ -47,7 +47,6 @@ class _MyAppState extends State<MyApp> {
           settings: settings,
         );
       },
-      // initialRoute: homeRoute,
       locale: _locale,
       home: const MainPage(),
     );

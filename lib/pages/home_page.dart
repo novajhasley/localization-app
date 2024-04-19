@@ -54,16 +54,16 @@ class _HomePageState extends State<HomePage> {
             Center(
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.blue, // Choose your color
+                  color: Colors.black.withOpacity(.5), 
                   borderRadius:
-                      BorderRadius.circular(30), // Adjust for oval shape
+                      BorderRadius.circular(30), 
                 ),
                 child: TextButton(
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
                         vertical: 10,
-                        horizontal: 20), // This is the color of the text
+                        horizontal: 20), 
                   ),
                   onPressed: () => widget.drawerController.toggle!(),
                   child: Text(
@@ -76,8 +76,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-
-            // const LanguageDropDownMenu()
           ],
         ),
       ),
