@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:ninjatrader_interview/classes/language.dart';
-import 'package:ninjatrader_interview/classes/language_constants.dart';
-import 'package:ninjatrader_interview/main.dart';
+import 'package:ninjatrader_interview/presentation/bloc/localization/localization_bloc.dart';
+import 'package:ninjatrader_interview/presentation/bloc/localization/localization_event.dart';
+import 'package:ninjatrader_interview/domain/entities/language.dart';
+import 'package:ninjatrader_interview/presentation/utils/translation.dart';
 
 class SideMenu extends StatefulWidget {
   final ZoomDrawerController drawerController;
@@ -56,13 +58,12 @@ class _SideMenuState extends State<SideMenu> {
                           children: [
                             //LANGUAGE BUTTON
                             GestureDetector(
-                              onTap: () async {
+                              onTap: () {
                                 setState(() {
                                   selectedLanguage = language.languageCode;
                                 });
-                                Locale locale =
-                                    await setLocale(language.languageCode);
-                                MyApp.setLocale(context, locale);
+                                BlocProvider.of<LocalizationBloc>(context).add(
+                                    SetLocale(Locale(language.languageCode)));
                                 widget.drawerController.toggle!();
                               },
                               child: Container(

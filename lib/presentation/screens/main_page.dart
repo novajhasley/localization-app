@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:ninjatrader_interview/pages/about_page.dart';
-import 'package:ninjatrader_interview/pages/home_page.dart';
-import 'package:ninjatrader_interview/pages/settings_page.dart';
-import 'package:ninjatrader_interview/pages/side_menu.dart';
+import 'package:ninjatrader_interview/presentation/screens/about_page.dart';
+import 'package:ninjatrader_interview/presentation/screens/home_page.dart';
+import 'package:ninjatrader_interview/presentation/screens/settings_page.dart';
+import 'package:ninjatrader_interview/presentation/screens/side_menu.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

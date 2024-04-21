@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:ninjatrader_interview/classes/language_constants.dart';
+import 'package:ninjatrader_interview/presentation/utils/translation.dart';
 
 class HomePage extends StatefulWidget {
   final ZoomDrawerController drawerController;
