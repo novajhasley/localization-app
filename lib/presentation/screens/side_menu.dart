@@ -1,25 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:ninjatrader_interview/presentation/bloc/localization/localization_bloc.dart';
-import 'package:ninjatrader_interview/presentation/bloc/localization/localization_event.dart';
 import 'package:ninjatrader_interview/domain/entities/language.dart';
 import 'package:ninjatrader_interview/presentation/utils/translation.dart';
+import 'package:ninjatrader_interview/presentation/widgets/language_button.dart';
 
-class SideMenu extends StatefulWidget {
+class SideMenu extends StatelessWidget {
   final ZoomDrawerController drawerController;
 
   const SideMenu({super.key, required this.drawerController});
 
   @override
-  State<SideMenu> createState() => _SideMenuState();
-}
-
-class _SideMenuState extends State<SideMenu> {
-  @override
   Widget build(BuildContext context) {
-    String selectedLanguage = Localizations.localeOf(context).languageCode;
-
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -51,50 +42,18 @@ class _SideMenuState extends State<SideMenu> {
                     height: MediaQuery.of(context).size.height * 0.4,
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: ListView.builder(
-                      itemCount: Language.languageList().length,
+                      itemCount: Language.languageList(context).length,
                       itemBuilder: (context, index) {
-                        var language = Language.languageList()[index];
+                        var language = Language.languageList(context)[index];
                         return Column(
                           children: [
                             //LANGUAGE BUTTON
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  selectedLanguage = language.languageCode;
-                                });
-                                BlocProvider.of<LocalizationBloc>(context).add(
-                                    SetLocale(Locale(language.languageCode)));
-                                widget.drawerController.toggle!();
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.symmetric(vertical: 5),
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color:
-                                      selectedLanguage == language.languageCode
-                                          ? Colors.blue
-                                          : Colors.transparent,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Row(
-                                  children: <Widget>[
-                                    const Icon(
-                                        IconData(0xf017b,
-                                            fontFamily: 'MaterialIcons'),
-                                        color: Colors.white),
-                                    const SizedBox(width: 10),
-                                    Text(language.name,
-                                        style: const TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w600)),
-                                  ],
-                                ),
-                              ),
+                            LanguageButton(
+                              language: language,
                             ),
                             //DIVIDER
                             if (index !=
-                                Language.languageList().length -
+                                Language.languageList(context).length -
                                     1) // Check if it's not the last index
                               Divider(
                                 color: Colors.white.withOpacity(.6),
