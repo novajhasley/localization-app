@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:ninjatrader_interview/presentation/bloc/theme/theme_bloc.dart';
+import 'package:ninjatrader_interview/presentation/bloc/theme/theme_state.dart';
 import 'package:ninjatrader_interview/presentation/utils/translation.dart';
 import 'package:ninjatrader_interview/presentation/widgets/background_image.dart';
 
@@ -18,10 +21,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading:
-            false, // This line prevents the back button from being shown
-      ),
       body: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -31,7 +30,7 @@ class _HomePageState extends State<HomePage> {
             //CONTENT
             Positioned(
               left: 20,
-              top: 80,
+              top: MediaQuery.of(context).size.height * 0.3,
               child: Text(
                 translation(context).helloUser,
                 style:
@@ -40,19 +39,22 @@ class _HomePageState extends State<HomePage> {
                 maxLines: 3,
               ),
             ),
-            Center(
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.55,
+              left: MediaQuery.of(context).size.width * .2,
+              right: MediaQuery.of(context).size.width * .2,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(.5), 
-                  borderRadius:
-                      BorderRadius.circular(30), 
+                  color: context.watch<ThemeBloc>().state is ThemeDarkState
+                      ? Colors.blue
+                      : Colors.black.withOpacity(.5),
+                  borderRadius: BorderRadius.circular(30),
                 ),
                 child: TextButton(
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 20), 
+                        vertical: 10, horizontal: 20),
                   ),
                   onPressed: () => widget.drawerController.toggle!(),
                   child: Text(

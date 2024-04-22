@@ -35,7 +35,7 @@ class _SettingsPageState extends State<SettingsPage> {
         BackgroundImage(),
         //CONTENT
         Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
           child: ListView(
             children: <Widget>[
               const ListTile(

@@ -22,11 +22,9 @@ class _AboutPageState extends State<AboutPage> {
           BackgroundImage(),
           //CONTENT
           Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+            child: ListView(
               children: [
-                SizedBox(height: 50),
                 Text(
                   translation(context).aboutApp,
                   style: TextStyle(
@@ -38,7 +36,7 @@ class _AboutPageState extends State<AboutPage> {
                 Text(
                   translation(context).appDescription,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 16,
                   ),
                 ),
                 SizedBox(height: 30),

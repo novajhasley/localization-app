@@ -21,7 +21,8 @@ class BackgroundImage extends StatelessWidget {
             offset: const Offset(200, 100),
             child: ColorFiltered(
               colorFilter: context.watch<ThemeBloc>().state is ThemeDarkState
-                  ? ColorFilter.mode(Colors.black, BlendMode.saturation)
+                  ? ColorFilter.mode(
+                      Colors.black.withOpacity(.1), BlendMode.srcOut)
                   : ColorFilter.mode(Colors.transparent, BlendMode.multiply),
               child: Image.asset('assets/images/backgrounds/zigzag.png',
                   fit: BoxFit.cover),
