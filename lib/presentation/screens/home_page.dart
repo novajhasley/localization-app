@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:ninjatrader_interview/presentation/utils/translation.dart';
+import 'package:ninjatrader_interview/presentation/widgets/background_image.dart';
 
 class HomePage extends StatefulWidget {
   final ZoomDrawerController drawerController;
@@ -26,19 +27,7 @@ class _HomePageState extends State<HomePage> {
         body: Stack(
           children: [
             //BACKGROUND IMAGE
-            ImageFiltered(
-              imageFilter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
-              child: Center(
-                child: OverflowBox(
-                  maxWidth: double.infinity,
-                  child: Transform.translate(
-                    offset: const Offset(200, 100),
-                    child: Image.asset('assets/images/backgrounds/zigzag.png',
-                        fit: BoxFit.cover),
-                  ),
-                ),
-              ),
-            ),
+            BackgroundImage(),
             //CONTENT
             Positioned(
               left: 20,

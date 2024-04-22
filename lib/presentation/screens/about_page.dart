@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:ninjatrader_interview/presentation/utils/translation.dart';
+import 'package:ninjatrader_interview/presentation/widgets/background_image.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -18,19 +19,7 @@ class _AboutPageState extends State<AboutPage> {
       body: Stack(
         children: [
           //BACKGROUND IMAGE
-          ImageFiltered(
-            imageFilter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
-            child: Center(
-              child: OverflowBox(
-                maxWidth: double.infinity,
-                child: Transform.translate(
-                  offset: const Offset(200, 100),
-                  child: Image.asset('assets/images/backgrounds/zigzag.png',
-                      fit: BoxFit.cover),
-                ),
-              ),
-            ),
-          ),
+          BackgroundImage(),
           //CONTENT
           Padding(
             padding: EdgeInsets.all(20.0),

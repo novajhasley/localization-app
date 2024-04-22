@@ -6,6 +6,7 @@ import 'package:ninjatrader_interview/presentation/bloc/theme/theme_bloc.dart';
 import 'package:ninjatrader_interview/presentation/bloc/theme/theme_event.dart';
 import 'package:ninjatrader_interview/presentation/bloc/theme/theme_state.dart';
 import 'package:ninjatrader_interview/presentation/utils/translation.dart';
+import 'package:ninjatrader_interview/presentation/widgets/background_image.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage({super.key});
@@ -31,19 +32,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return Stack(
       children: [
         //BACKGROUND IMAGE
-        ImageFiltered(
-          imageFilter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
-          child: Center(
-            child: OverflowBox(
-              maxWidth: double.infinity,
-              child: Transform.translate(
-                offset: const Offset(200, 100),
-                child: Image.asset('assets/images/backgrounds/zigzag.png',
-                    fit: BoxFit.cover),
-              ),
-            ),
-          ),
-        ),
+        BackgroundImage(),
         //CONTENT
         Padding(
           padding: const EdgeInsets.all(20.0),
@@ -51,8 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
             children: <Widget>[
               const ListTile(
                 leading: CircleAvatar(
-                  backgroundImage: AssetImage(
-                      'assets/your_picture.png'), // TODO: Replace with your picture
+                  backgroundImage: AssetImage('assets/images/nova_hasley.jpg'),
                 ),
                 title: Text(
                   'Nova Hasley',
@@ -60,7 +48,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
-                ), // TODO: Replace with your name
+                ),
               ),
               const Divider(),
               Row(
@@ -72,7 +60,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(translation(context).dark),
+                      Text(translation(context).light),
                       Switch(
                         value: (context.watch<ThemeBloc>().state
                             is ThemeDarkState),
@@ -81,7 +69,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               value ? ThemeDarkEvent() : ThemeLightEvent());
                         },
                       ),
-                      Text(translation(context).light),
+                      Text(translation(context).dark),
                     ],
                   ),
                 ],
