@@ -49,7 +49,6 @@ class _MainPageState extends State<MainPage> {
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
             child: BottomNavigationBar(
-              backgroundColor: Colors.white.withOpacity(0.7),
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: Icon(Icons.info),

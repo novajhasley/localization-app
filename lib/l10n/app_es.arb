@@ -1,0 +1,23 @@
+{
+  "english": "Inglés",
+  "spanish": "Español",
+  "helloUser": "¡Hola, usuario!",
+  "settings": "Configuraciones",
+  "changeLanguage": "Cambiar idioma",
+  "languagePreference": "Preferencia de idioma",
+  "aboutMe": "¡Hola! Soy Nova Hasley, un experimentado desarrollador Full Stack y Scrum Master certificado con más de 9 años de experiencia en la creación de soluciones innovadoras y escalables para plataformas móviles, de escritorio y web. Prospero en entornos dinámicos donde puedo aplicar mi experiencia técnica y colaborar con equipos multifuncionales para ofrecer soluciones impactantes.",
+  "technicalProficiency": "💻 Capacidad técnica:",
+  "languages": "Idiomas: Dart, Flutter, React, HTML, CSS, JavaScript, Node, Python",
+  "databases": "Bases de Datos: SQL, NoSQL",
+  "toolsTechnologies": "Herramientas y tecnologías: Git, Bash, Firebase, AWS, MongoDB, API RESTful, Postman",
+  "dataAnalysis": "Análisis de Datos: Jupyter, Power Bi, Tableau",
+  "projectManagement": "Gestión de Proyectos: Metodologías Agile/Scrum, Jira, Confluence, Kanban, GitHub",
+  "contact": "Estoy buscando nuevas oportunidades y me pueden contactar a través de este perfil o por teléfono al: 830-459-8287.",
+  "theme": "Tema",
+  "light": "Luz",
+  "dark": "Oscuro",
+  "aboutApp": "Acerca de la Aplicación",
+  "appDescription": "Esta aplicación fue creada para mostrar el siguiente mensaje. Espero que lo encuentres agradable. Me lo pasé muy bien desarrollándolo.",
+  "thePrompt": "El Aviso",
+  "promptDescription": "Cree una aplicación móvil de Flutter simple que demuestre la funcionalidad de localización de Flutter. Debería ser solo una pantalla de bienvenida con la etiqueta “¡Hola, usuario!” y un menú desplegable con dos idiomas: “inglés” y “español”. Cambiar el idioma debería aplicar el idioma seleccionado a la aplicación."
+}

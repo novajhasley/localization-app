@@ -1,0 +1,86 @@
+{
+  "english": "English",
+  "@english": {
+    "description": "English language"
+  },
+  "spanish": "Spanish",
+  "@spanish": {
+    "description": "Spanish language"
+  },
+  "helloUser": "Hello, user!",
+  "@helloUser": {
+    "description": "Greeting message for the user"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Title for the settings page"
+  },
+  "changeLanguage": "Change Language",
+  "@changeLanguage": {
+    "description": "Label for the button to change the application language"
+  },
+  "languagePreference": "Language preference",
+  "@languagePreference": {
+    "description": "Label for the language preference option"
+  },
+  "aboutMe": "Hello! I'm Nova Hasley, a seasoned Full Stack Developer and Certified Scrum Master with over 9 years of experience in building innovative and scalable solutions for mobile, desktop, and web platforms. I thrive in dynamic environments where I can apply my technical expertise and collaborate with cross-functional teams to deliver impactful solutions.",
+  "@aboutMe": {
+    "description": "Introduction of the developer"
+  },
+  "technicalProficiency": "💻 Technical Proficiency:",
+  "@technicalProficiency": {
+    "description": "Heading for the technical proficiency section"
+  },
+  "languages": "Languages: Dart, Flutter, React, HTML, CSS, JavaScript, Node, Python",
+  "@languages": {
+    "description": "List of programming languages the developer is proficient in"
+  },
+  "databases": "Databases: SQL, NoSQL",
+  "@databases": {
+    "description": "List of databases the developer is proficient in"
+  },
+  "toolsTechnologies": "Tools & Technologies: Git, Bash, Firebase, AWS, MongoDB, RESTful APIs, Postman",
+  "@toolsTechnologies": {
+    "description": "List of tools and technologies the developer is proficient in"
+  },
+  "dataAnalysis": "Data Analysis: Jupyter, Power Bi, Tableau",
+  "@dataAnalysis": {
+    "description": "List of data analysis tools the developer is proficient in"
+  },
+  "projectManagement": "Project Management: Agile/Scrum methodologies, Jira, Confluence, Kanban, GitHub",
+  "@projectManagement": {
+    "description": "List of project management methodologies and tools the developer is proficient in"
+  },
+  "contact": "I am pursuing new opportunities and can be reached through this profile, or by phone at: 830-459-8287.",
+  "@contact": {
+    "description": "Contact information of the developer"
+  },
+  "theme": "Theme",
+  "@theme": {
+    "description": "Label for the theme switch"
+  },
+  "light": "Light",
+  "@light": {
+    "description": "Label for the light theme option"
+  },
+  "dark": "Dark",
+  "@dark": {
+    "description": "Label for the dark theme option"
+  },
+  "aboutApp": "About the App",
+  "@aboutApp": {
+    "description": "Heading for the about app section"
+  },
+  "appDescription": "This app was created to showcase the following prompt. I hope you find it enjoyable. I had a great time developing it.",
+  "@appDescription": {
+    "description": "Description of the app"
+  },
+  "thePrompt": "The Prompt",
+  "@thePrompt": {
+    "description": "Heading for the prompt section"
+  },
+  "promptDescription": "Please create a simple Flutter mobile application that demonstrates the Flutter localization functionality. It should be just one welcome screen with the label “Hello, user!” and a dropdown with two languages - “English” and “Spanish”. Switching the language should apply the selected language to the app.",
+  "@promptDescription": {
+    "description": "Description of the prompt"
+  }
+}

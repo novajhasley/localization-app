@@ -1,23 +1,33 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ninjatrader_interview/presentation/bloc/theme/theme_bloc.dart';
+import 'package:ninjatrader_interview/presentation/bloc/theme/theme_event.dart';
+import 'package:ninjatrader_interview/presentation/bloc/theme/theme_state.dart';
+import 'package:ninjatrader_interview/presentation/utils/translation.dart';
 
-class SettingsPage extends StatelessWidget {
-  final List<String> _content = [
-    "Hello! I'm Nova Hasley, a seasoned Full Stack Developer and Certified Scrum Master with over 9 years of experience in building innovative and scalable solutions for mobile, desktop, and web platforms. I thrive in dynamic environments where I can apply my technical expertise and collaborate with cross-functional teams to deliver impactful solutions.",
-    "💻 Technical Proficiency:",
-    "Languages: Dart, Flutter, React, HTML, CSS, JavaScript, Node, Python",
-    "Databases: SQL, NoSQL",
-    "Tools & Technologies: Git, Bash, Firebase, AWS, MongoDB, RESTful APIs, Postman",
-    "Data Analysis: Jupyter, Power Bi, Tableau",
-    "Project Management: Agile/Scrum methodologies, Jira, Confluence, Kanban, GitHub",
-    "I am pursuing new opportunities and can be reached through this profile, or by phone at: 830-459-8287."
-  ];
-
+class SettingsPage extends StatefulWidget {
   SettingsPage({super.key});
 
   @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  @override
   Widget build(BuildContext context) {
+    final List<String> content = [
+      translation(context).aboutMe,
+      translation(context).technicalProficiency,
+      translation(context).languages,
+      translation(context).databases,
+      translation(context).toolsTechnologies,
+      translation(context).dataAnalysis,
+      translation(context).projectManagement,
+      translation(context).contact,
+    ];
+
     return Stack(
       children: [
         //BACKGROUND IMAGE
@@ -39,23 +49,49 @@ class SettingsPage extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: ListView(
             children: <Widget>[
-              ListTile(
-                leading: const CircleAvatar(
+              const ListTile(
+                leading: CircleAvatar(
                   backgroundImage: AssetImage(
                       'assets/your_picture.png'), // TODO: Replace with your picture
                 ),
                 title: Text(
                   'Nova Hasley',
                   style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black.withOpacity(.7)),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ), // TODO: Replace with your name
               ),
               const Divider(),
-              ..._content.map((text) => Text(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('${translation(context).theme}:',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(translation(context).dark),
+                      Switch(
+                        value: (context.watch<ThemeBloc>().state
+                            is ThemeDarkState),
+                        onChanged: (value) {
+                          context.read<ThemeBloc>().add(
+                              value ? ThemeDarkEvent() : ThemeLightEvent());
+                        },
+                      ),
+                      Text(translation(context).light),
+                    ],
+                  ),
+                ],
+              ),
+              const Divider(),
+              ...content.map((text) => Text(
                     text,
-                    style: const TextStyle(fontSize: 20, color: Colors.black),
+                    style: const TextStyle(
+                      fontSize: 20,
+                    ),
                   )),
             ],
           ),

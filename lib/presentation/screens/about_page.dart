@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:ninjatrader_interview/presentation/utils/translation.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -32,38 +33,40 @@ class _AboutPageState extends State<AboutPage> {
           ),
           //CONTENT
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 50),
+                SizedBox(height: 50),
                 Text(
-                  'About the App',
+                  translation(context).aboutApp,
                   style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black.withOpacity(.7)),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                const SizedBox(height: 20),
-                const Text(
-                  'This app was created to showcase the following prompt. I hope you find it enjoyable. I had a great time developing it.',
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                ),
-                const SizedBox(height: 30),
+                SizedBox(height: 20),
                 Text(
-                  'The Prompt',
+                  translation(context).appDescription,
                   style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black.withOpacity(.7)),
+                    fontSize: 20,
+                  ),
                 ),
-                const SizedBox(height: 20),
-                const Text(
-                  'Please create a simple Flutter mobile application that demonstrates the Flutter localization functionality. It should be just one welcome screen with the label “Hello, user!” and a dropdown with two languages - “English” and “Spanish”. Switching the language should apply the selected language to the app.',
+                SizedBox(height: 30),
+                Text(
+                  translation(context).thePrompt,
                   style: TextStyle(
-                      fontSize: 18,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.black),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  translation(context).promptDescription,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontStyle: FontStyle.italic,
+                  ),
                 ),
               ],
             ),
