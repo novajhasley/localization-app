@@ -5,11 +5,19 @@ import 'package:ninjatrader_interview/presentation/bloc/theme/theme_state.dart';
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc() : super(ThemeLightState()) {
     on<ThemeDarkEvent>((event, emit) {
-      emit(ThemeDarkState());
+      try {
+        emit(ThemeDarkState());
+      } catch (e) {
+        print('Failed to switch to dark theme: $e');
+      }
     });
 
     on<ThemeLightEvent>((event, emit) {
-      emit(ThemeLightState());
+      try {
+        emit(ThemeLightState());
+      } catch (e) {
+        print('Failed to switch to light theme: $e');
+      }
     });
   }
 }

@@ -12,7 +12,14 @@ class LocalizationBloc extends Bloc<LocalizationEvent, LocalizationState> {
 
   Stream<LocalizationState> mapEventToState(LocalizationEvent event) async* {
     if (event is SetLocale) {
-      yield LocaleUpdated(event.locale);
+      try {
+        // Potentially unsafe operation goes here
+        // For example, a network request
+        yield LocaleUpdated(event.locale);
+      } catch (e) {
+        // Handle the error and yield an error state
+        print(e.toString());
+      }
     }
   }
 }
