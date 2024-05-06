@@ -1,4 +1,4 @@
-# ninjatrader_interview
+# Localization App
 
 This is a Flutter application that displays a welcome message to the user on the home page with localization.
 
